@@ -1,0 +1,32 @@
+
+html
+  head
+    title= title
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css")
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+
+    body.container
+        .navbar.navbar-inverse.navbar-fixed-top
+            .navbar-inner
+                .container
+                    button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.brand(href='/') MyBackup
+                    .nav-collapse.collapse
+                        ul.nav
+                            li
+                                a(href='/me') Datos Personales
+                        //- ul.nav
+                            li.active
+                                a(href='#') Reserva
+                        ul.nav.pull-right
+                            li
+                                a(href='#') Salir
+
+
+
+
+        block content

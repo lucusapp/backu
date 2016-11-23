@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  h1= "Lista de álbumes"
+  - each i in data.data
+    div=i.name
+    div=i.link
+    a(href="/album/" + i.id) link
+    hr

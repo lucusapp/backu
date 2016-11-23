@@ -1,0 +1,22 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.2.6",
+    "jade": "*",
+    "fb": "~0.6.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-develop": "~0.1.1",
+    "grunt-regarde": "~0.1.1",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-exec": "~0.4.2"
+  }
+}
