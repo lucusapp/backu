@@ -70,7 +70,7 @@ app.put('/api/:coleccion/:id', auth, function(req, res, next) {
 
 //DELETE
 
-app.delete('/api/:coleccion/.id, auth, function() {
+app.delete('/api/:coleccion/.id', auth, function() {
     req.collection.remove({_id: id(req.params.id), function(e, result) {
         if(e) return next (e);
          res.send(result ===1} ? {resultado: "ok"} : {resultado: "ko"});
