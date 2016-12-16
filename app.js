@@ -1,7 +1,10 @@
 var express = require('express'),
     mongoskin = require('mongoskin'),
+<<<<<<< HEAD
     bodyParser = require('body-parser'),
     urlencode = require ('urlencode'),
+=======
+>>>>>>> origin/master
     config  = require('./config/config');
 
 var app     = express();
@@ -24,16 +27,27 @@ var auth = function(req, res, next) {
         return next (new Error('no autorizado'));
     }
 }
+<<<<<<< HEAD
 
 
 //http://localhost:3000/api/:coleccion/.id
 app.param('coleccion', function(req, res, next, coleccion) {
+=======
+      
+
+//http://localhost:3000/api/:coleccion/.id
+app.param('coleccion' function(req, res, next, coleccion) {
+>>>>>>> origin/master
     req.collection = db.collection(coleccion);
 });
 
 //PARA COGER LOS DATOS DE REQ.BODY TENEMOS QUE DECIRLE A NUESTRO MIDDLEWARE QUE USE BODYPARSER
 
+<<<<<<< HEAD
 app.use(bodyParser.urlencode({extended: true}));
+=======
+app.use(bodyParser.urlenconde({extended: true}));
+>>>>>>> origin/master
 app.use(bodyParser.json());
 app.use(allowMethods);
 app.use(allowCrossTokenHeader);
@@ -48,10 +62,17 @@ app.post('/api/:coleccion', auth,  function(req, res, next) {
 });
 
 app.get('/api/:coleccion', auth, function(req, res, next) {
+<<<<<<< HEAD
     req.collection.find({}, {limit: 10, sort: [['_id', -1]]}).toArray(function(e, results) {
         if(e) return next(e);
         res.send(results);
     });
+=======
+    req.collection.find({}, {limit: 10, sort[['_id', -1]]}).toArray(function(e, results) {
+        if(e) return next(e);
+        res.send(results);
+    });  
+>>>>>>> origin/master
 });
 
 app.get('/api/:coleccion/:id', auth, function(req, res, next) {
@@ -63,7 +84,11 @@ app.get('/api/:coleccion/:id', auth, function(req, res, next) {
 
 //PUT
 app.put('/api/:coleccion/:id', auth, function(req, res, next) {
+<<<<<<< HEAD
     req.collection.update({_id: id(req.params.id)}, {$set: req.body}, {safe: true, multi: false},
+=======
+    req.collection.update(´_id: id(req.params.id)}, {$set: req.body}, {safe: true, multi: false},
+>>>>>>> origin/master
        function(e, result) {
             if(e) return next(e);
     res.send((result === 1) ? {resultado: "ok"} : {resultado: "ko"});
@@ -75,6 +100,7 @@ app.put('/api/:coleccion/:id', auth, function(req, res, next) {
 app.delete('/api/:coleccion/.id', auth, function() {
     req.collection.remove({_id: id(req.params.id), function(e, result) {
         if(e) return next (e);
+<<<<<<< HEAD
          res.send((result === 1) ? {resultado: "ok"} : {resultado: "ko"});
     }
   });
@@ -82,6 +108,13 @@ app.delete('/api/:coleccion/.id', auth, function() {
 
 
 
+=======
+         res.send(result ===1} ? {resultado: "ok"} : {resultado: "ko"});
+    });
+});
+
+                                                                  
+>>>>>>> origin/master
 
 require('./config/express')(app, config);
 require('./app/routes')(app);
