@@ -5,7 +5,7 @@ var User = require('../models/User');
 exports.home = function(req, res){
     res.render('index', {
         title: 'Express',
-        loginUrl : FB.getLoginUrl({ scope: 'user_about_me,user_photos' })
+        loginUrl : FB.getLoginUrl({ scope: 'user_about_me,user_photos,' })
     });
 };
 
@@ -13,12 +13,12 @@ exports.showMe = function(req, res){
     var access_token = req.session.access_token;
     FB.setAccessToken(access_token);
 
-    FB.api('/me', { 'fields': 'id,name' }, function (result) {
+    FB.api('/me', 'GET', { 'fields': 'id,name,feed,first_name' }, function (result) {
 
         console.log(result);
 
         res.render('user/showMe', {
-            title: 'Datos Personales',
+            title: 'datos personales',
             data : result
         });
     });
@@ -44,7 +44,7 @@ exports.showUser = function(req, res) {
         console.log(result);
 
         res.render('user/showUser', {
-            title: '個人資訊',
+            title: 'datos personales',
             data : result
         });
     });

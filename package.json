@@ -6,9 +6,13 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "3.2.6",
+    "fb": "~0.6.2",
     "jade": "*",
-    "fb": "~0.6.2"
+    "mongodb": "^2.2.16",
+    "mongoskin": "^2.1.0",
+    "urlencode": "^1.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

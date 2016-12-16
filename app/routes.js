@@ -4,7 +4,6 @@ module.exports = function(app){
 
     var user = require('./controllers/user');
     var album =require('./controllers/album');
-    var rss = require('./controllers/rss');
 
     app.get('/', user.home);
     app.get('/login/callback', user.loginCallback);
@@ -23,8 +22,6 @@ module.exports = function(app){
     app.get('/album/:id', album.showAlbum);
     app.get('/album/:id/after/:after', album.showAlbum);
     app.get('/album/:id/before/:before', album.showAlbum);
-
-    app.get('/rss', rss.showrss);
 
 
 };

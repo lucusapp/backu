@@ -9,11 +9,12 @@ exports.showAlbum = function(req, res) {
     var albumId = req.params.id;
     var after   = req.params.after || '';
     var before   = req.params.before || '';
+    var feed     = req.params.feed
     var uri     = '/' + albumId + '/photos';
 
     var params = {
         'limit' : 6,
-        'fields': 'id,name,picture,source,images',
+        'fields': 'id,name,picture,source,images,feed',
         'after' : after,
         'before': before
     };
@@ -24,7 +25,16 @@ exports.showAlbum = function(req, res) {
         res.render('album/showAlbum', {
             data    : result,
             albumId : albumId
-        });
 
-    });
-};
+          });
+      });
+
+    FB.api('/me','GET',{fields: 'name'}, function(response) {
+            console.log(response);
+            res.render('album/showAlbum', {
+                data    : response
+
+          });
+
+  });
+}

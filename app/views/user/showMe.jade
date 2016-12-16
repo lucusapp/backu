@@ -3,5 +3,8 @@ extends ../layout
 block content
   h1= title
   p Welcome to #{title}
-  div=data.name
+  div=data.first_name
+  div=data
+
+
   a(href="/user/" + data.id) showme

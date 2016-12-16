@@ -2,17 +2,18 @@ extends ../layout
 
 block content
   h1= 'title'
-  div
+  div=data.response
+  div=data.albumId
     if data.paging && data.paging.cursors
       - var before = data.paging.cursors.before
       - var after = data.paging.cursors.after
 
       a.btn(href='/album/' + albumId + '/before/' + before )
         i.icon-double-angle-left
-        ="anterior"
+        =" anterior "
       a.btn(href='/album/' + albumId + '/after/' + after )
         i.icon-double-angle-right
-        ="siguiente"
+        =" siguiente "
 
       - each i in data.data
         div=i.name
@@ -22,7 +23,4 @@ block content
             img(src=i.picture, alt="")
         hr
     else
-      ="No hay información"
-      a.btn(href='/album/' + albumId + '/before/' + before )
-        i.icon-double-angle-left
-        ="anterior"
+      ="No hay información que"
